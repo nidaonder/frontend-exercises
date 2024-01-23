@@ -65,3 +65,53 @@ console.log("firstItem : ", firstItem, " & ", "items : ", items)
 items[0] = 1
 items[items.length-1] = 300
 console.log(items)
+
+// array methods
+
+let arrays = [1, 2, 3, 4, 5]
+
+// array icinde array
+
+let femaleUsers = ["Ayse", "Hulya", "Merve"]
+let maleUsers = ["Ahmet", "Hasan", "Mehmet"]
+
+arrays.unshift(femaleUsers) // -> basa ekliyoruz
+console.log(arrays)
+
+arrays.push(maleUsers) // -> sona ekliyoruz
+console.log(arrays)
+
+// array icerisinden elemanları ayirmak
+
+let newArrays = arrays.splice(2,4)
+console.log("newArrays : ", newArrays, " & ", "arrays : ", arrays)
+
+// array icindeki ogenin index bilgisini bulmak
+
+arrays.unshift("lorem")
+arrays.push("ipsum")
+console.log(arrays)
+console.log(arrays.indexOf("ipsum"))
+
+// array kopyalamak
+
+let copyArrays = arrays.slice()
+copyArrays.pop() // -> son oge cikarttik
+console.log("copyarrays : ", copyArrays, " & ", "arrays : ", arrays)
+
+let es6Arrays = [...arrays] // -> es6 ve sonrasinda gelen copy islemi
+console.log(es6Arrays)
+
+let allUsers = [...femaleUsers, ...maleUsers] // -> 2 arrayi birlestirdik es6 ile
+console.log(allUsers)
+
+// array icindeki bilgiyi stringe cevirmek
+
+console.log(allUsers.toString())
+console.log(allUsers.join(" --- "))
+
+// istedigimiz index bilgisine oge eklemek -> splice (index, 0, value)
+
+allUsers.splice(allUsers.length-1, 0, "Melissa")
+allUsers.splice(Math.floor(allUsers.length / 2), 0, "Lorem")
+console.log(allUsers)
