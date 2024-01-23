@@ -40,3 +40,28 @@ console.log(
 console.log(" [] : ", Array.isArray( [] ))
 console.log("1 : ", Array.isArray( 1 ))
 console.log("true : ", Array.isArray( true ))
+
+// arraylerde sona eleman eklemek -> push
+
+items.push(50)
+console.log(items)
+
+// basa eleman eklemek -> unshift
+
+items.unshift(5)
+console.log(items)
+
+// sondaki elemanı cikarmak -> pop
+
+let lastItem = items.pop()
+console.log("lastItem : ", lastItem," & ", "items : " , items)
+
+// bastaki elemanı cikarmak -> shift
+let firstItem = items.shift()
+console.log("firstItem : ", firstItem, " & ", "items : ", items)
+
+// array icindeki bir ogenin bilgisinin degistirilmesi
+
+items[0] = 1
+items[items.length-1] = 300
+console.log(items)
