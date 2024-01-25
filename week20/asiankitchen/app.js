@@ -32,7 +32,7 @@ const menu = [
     category: "China",
     price: 5.99,
     img:
-      "https://www.savingdessert.com/wp-content/uploads/2019/02/Dan-Dan-Noodles-10.jpg",
+      "https://www.justonecookbook.com/wp-content/uploads/2011/10/Dorayaki-New-500x400.jpg",
     desc: `Dan dan noodle, serving with green onion `,
   },
   {
@@ -81,3 +81,55 @@ const menu = [
     desc: `Red bean paste dessert, serving with honey.`,
   },
 ];
+
+let koreaMenu = menu.filter(item => item.category === "Korea");
+let japanMenu = menu.filter(item => item.category === "Japan");
+let chinaMenu = menu.filter(item => item.category === "China");
+
+function displayMenu(menu) {
+  let sectionContainer = document.querySelector('.section-center');
+  sectionContainer.innerHTML = '';
+  menu.forEach(item => {
+    const itemHTML = `
+    <div class="menu-items col-lg-6 col-sm-12">
+      <img src="${item.img}" alt="${item.title}" class="photo"></img>
+      <div class="menu-info">
+        <div class="menu-title">
+          <h4>${item.title}</h4>
+          <h4 class="price">${item.price}</h4>
+        </div>
+        <div class="menu-text">${item.desc}</div>
+      </div>
+    </div>
+    `;
+    sectionContainer.innerHTML += itemHTML;
+  });
+}
+
+displayMenu(menu);
+
+const filterButtons = document.querySelectorAll('.btn-item');
+filterButtons.forEach(btn => {
+  btn.addEventListener('click', function() {
+    const category = btn.getAttribute('data-id');
+    let menuCategory;
+    switch(category) {
+      case 'All':
+        menuCategory = menu;
+        break;
+      case 'Korea':
+        menuCategory = koreaMenu;
+        break;
+      case 'Japan':
+        menuCategory = japanMenu;
+        break;
+      case 'China' :
+        menuCategory = chinaMenu;
+        break;
+      default:
+        menuCategory = menu;
+    }
+    displayMenu(menuCategory);
+  })
+})
+displayMenu(menu);
